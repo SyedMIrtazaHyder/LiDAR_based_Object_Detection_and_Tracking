@@ -1,0 +1,23 @@
+tensorrt
+onnx
+
+ultralytics==8.3.78
+numpy==1.23.9
+
+# torch==2.2.0
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/4c1/d7a5d0ba92527/torch-2.2.0-cp38-cp38-linux_aarch64.whl
+
+# torchvision==0.17.2
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/12c/2173bcd5255bd/torchvision-0.17.2+c1d70fe-cp38-cp38-linux_aarch64.whl
+
+# onnxruntime-gpu==1.16.3
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/ed5/8a16480d70d91/onnxruntime_gpu-1.16.3-cp38-cp38-linux_aarch64.whl
+
+# opencv-contrib-python==4.10.0
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/26f/b26ce5df2df1e/opencv_contrib_python-4.10.0+6a181ce-cp38-cp38-linux_aarch64.whl
+
+# opencv-python==4.10.0
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/e6a/f633b44affeef/opencv_python-4.10.0-py3-none-any.whl
+
+#cuda==11.4
+https://pypi.jetson-ai-lab.dev/jp5/cu114/+f/5e8/f51cda72c8b11/cuda-11.4.0+0.g427c597.dirty-cp38-cp38-linux_aarch64.whl
