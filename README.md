@@ -48,9 +48,22 @@ YOLOv12 Nano OBB | 15| 87.5 | 66.7 |
 YOLOv12 Small OBB | 32 | 86.8 | 68.7 |
 RT-DETR | 50 | 65.4 | 58.9 |
 
+## Collaborators
+1. [Muhammad Abdullah](https://github.com/mabdullah-imran): Development of Object Detection and Tracking Algorithms & Implementation of models on Hardware
+2. [Muhammad Zakria Mehmood](https://github.com/ZakriaComputerEngineer): Development and Training of Object Detection Models
+3. [Syed Muhammad Irtaza Hyder](https://github.com/SyedMIrtazaHyder): Development of Simulations and Visualizations & Integration of LiDAR with Vehicle
+
 ## Acknowledgment
+Firstly we would like to thank our professors [Usman Akram](https://scholar.google.com/citations?hl=en&user=2BntV9IAAAAJ) and [Fahad Mumtaz Malik](https://scholar.google.com/citations?hl=en&user=i9ycd5sAAAAJ) for their continous support and providing us the resources for making the project possible.
+
+We want to further extend our thanks to [Muneeb Ahmad](https://github.com/muneebahmed26301) for developing the LiDAR mount and helping us to attach the LiDAR to the car.
+
+## Resources
 https://github.com/maudzung/Complex-YOLOv4-Pytorch
+
 https://docs.ros.org/en/humble/index.html
+
 https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV
 
 ## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
