@@ -7,8 +7,8 @@ from ouster.sdk import client, sensor
 from time import time_ns
 
 from contextlib import closing
-from trackers.track import traj_store
-from trackers import register_tracker
+from tracker.track import traj_store
+from tracker import register_tracker
 
 #------------------ BEV CONVERSION ARGS AND FUNCTIONS ---------------------#
 BEV_HEIGHT = 608
@@ -94,7 +94,8 @@ lidar_port = None		# Setting port automatically on runtime is not configured
 #------------------- MAIN LOGIC --------------------#
 if __name__ == '__main__':
     # Initializing Model and csv logger
-    model = YOLO('/media/de43/xavierSSD500/CE43/TensorRT Models/epoch582_11s.engine', task='obb')
+    model = YOLO('models/Pytorch/YOLO_11s/epoch525_11s.pt', task='obb')  # insert model here
+
     register_tracker(model, persist=True)
     
     data_frame = pd.DataFrame(columns=["duration", "id", "cls", "coords"])
