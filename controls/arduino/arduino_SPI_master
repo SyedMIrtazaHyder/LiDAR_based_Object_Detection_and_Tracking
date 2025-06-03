@@ -1,0 +1,22 @@
+#include <SPI.h> // already includes SS, MOSI, MISO, SCK definations
+// https://forum.arduino.cc/t/arduino-to-arduino-communication-using-spi/1018046/14
+
+bytes txData[] = {0x10, 0x60, 0x90};
+bytes rxData[3];
+
+void setup(){
+    SPI.begin();
+    SPI.beginTransaction(SPISettings(maxSpeed, dataOrder, dataMode));
+    // maxSpeed by default is 14_000_000
+    // dataOrder can be either MSBFIRST or LSBFIRST
+    // dataMode for the 4 SPI modes, can be SPI_MODE0, SPI_MODE1, SPI_MODE2, SPI_MODE3
+    digitalWrite(SS, LOW); // Slave is selected
+}
+
+void loop(){
+    for (int i = 0; i < 3; i++) {
+        rxData[i] = SPI.transfer(txData[i]); 
+        Serial.print("Recieved Data from Slave: ");
+        Serial.println(rxData[i]);
+    }
+}

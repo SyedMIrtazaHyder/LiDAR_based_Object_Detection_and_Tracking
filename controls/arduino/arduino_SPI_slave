@@ -1,0 +1,38 @@
+#include <SPI.h> // already includes SS, MOSI, MISO, SCK definations
+// https://forum.arduino.cc/t/arduino-to-arduino-communication-using-spi/1018046/14
+
+int i = 0;
+byte txData[] = {0x11, 0x50, 0x35};
+byte rxData[3];
+
+bool flag = False;
+
+void setup(){
+    pinMode(SS, INPUT_PULLUP); // ensuring that initially SS is 1 (disabled)
+    pinMode(SCK, INPUT);
+    pinMode(MOSI, INPUT);
+    pinMode(MISO, OUPUT);
+
+    bitClear(SPCR, MSTR); // clearing Master bit to make controller act like slave 
+    bitSet(SPCR, SPE); // enabling SPI Port
+    SPI.attachInterrupt(); // ISR for SPI
+}
+
+void loop(){
+    if (flag == true){
+        rxData[i] = SPDR;
+        Serial.print("Data Recieved from Master: ");
+        Serial.println(rxData[i], HEX);
+        SPDR = txData[i];
+        i++;
+        if (i == 3) {
+            i = 0;
+            Serial.println(); // after complete tranmission we leave a line
+        }
+        flag = false;
+    }
+}
+
+void ISR(SPI_STC_vect){ // SPI Serial Transmit Complete vector
+    flag = true;
+}

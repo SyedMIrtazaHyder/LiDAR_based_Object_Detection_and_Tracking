@@ -1,19 +1,20 @@
+import sys
 from ultralytics import YOLO
-from tracker import register_tracker
 from tracker.track import traj_store
+from tracker import register_tracker
 import cv2 as cv
 import numpy as np
 
 
 
 if __name__ == '__main__':
-
-    model = YOLO('/Users/abdullah/Desktop/LiDAR/yolo11s/epoch625_11s/weights/best.pt')
+    model = YOLO('models/Pytorch/YOLO_11s/epoch525_11s.pt', task="obb")  # insert model here
     register_tracker(model, persist=True)
-    video_path = "result.avi"
+
+    video_path = sys.argv[1]
     cap = cv.VideoCapture(video_path)
     out_cap = cv.VideoWriter(
-        'result_tracked525.avi', # this time it was 525+57=582 
+        f'{video_path}_result.avi', # this time it was 525+57=582 
         cv.VideoWriter_fourcc(*'MJPG'),
         10, 
         (608, 608)
