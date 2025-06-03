@@ -32,6 +32,8 @@ We have enhanced the perception system using the LiDAR, providing on edge detect
 4. [NUSTAG Autonomous Vehicle](https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV)
 
 ## Repository Structure
+Use `git clone --recurse-submodules https://github.com/SyedMIrtazaHyder/LiDAR_based_Object_Detection_and_Tracking.git` when cloning the repo.
+
 The [models](models) folder contains the mentioned deep learning models trained. Currently only the PyTorch models are available as TensorModels tend to differ based on hardware used.
 
 The [ROS2](ROS2) folder contains the Dockerfile, compose.yaml and .tmux file for setting up the Docker environment. It also contains the source folder that has all the relevant ROS2 packages to for visualization and simulation purposes.
