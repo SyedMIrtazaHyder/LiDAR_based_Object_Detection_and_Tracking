@@ -1,0 +1,78 @@
+Test the following command:
+$ sudo /opt/nvidia/jetson-io/config-by-pin.py
+$ sudo /opt/nvidia/jetson-io/config-by-pin.py -l
+$ sudo /opt/nvidia/jetson-io/config-by-pin.py -p 5
+$ sudo /opt/nvidia/jetson-io/config-by-pin.py -p 10 -n 2
+
+where -l is to list all headers supported on the device, and -p is for checking the pin's config and -h is for specifying header (wth does this even mean)
+
+
+Developer Guide: https://docs.nvidia.com/jetson/archives/r35.1/DeveloperGuide/index.html 
+
+Basics of SPI:
+    3 main pins: SCLK (Serial Clock), MISO, MOSI. 
+    Devices use shift register to communicate via making an interchip ciruclar buffer/queue
+    The master has CS/SS pins (Chip/Slave Select) via which is selects the Slave device to communicate with.
+    It has 4 modes, which mainly depend on the bit in CPOL(Clock Polarity) and CPHA(Clock Phase) where CPOL is the higher order bit and CPHA the lower order bit.
+
+
+    Connection
+    MISO -> MISO
+    MOSI -> MOSI
+    CS is active low
+    single bit duplex communication in each clock cycle
+    Data sent from MSB -> LSB
+
+    Bit Banging:
+    Software instead of dedicated hardware for generating trasmitted or processing recieved signal.
+    Code for Simuating SPI given CPHA and CPOL are 0.
+    1. Initialize SCLK as low and CS as high
+    2. Pull CS low to select the sub
+    3. Loop for however many number of bytes to transfer
+        a. Initializebyte_outwith the next output byte to transmit
+        b. Loop 8 times:
+            i. Left-Shift[note 10] the next output bit frombyte_outto MOSI
+            ii. NOP for the sub's setup time
+            iii. Pull SCLK high
+            iv. Left-Shift the next input bit from MISO intobyte_in
+            v. NOP for the sub's hold time
+            vi. Pull SCLK low
+        c. byte_innow contains that recently-received byte and can be used as desired
+    4. Pull CS high to unselect the sub
+
+What is a driver: It is an interface between different layers in system (HW -> Kernel -> OS/User).
+Why do we need drivers: To properly access the memory, we need to pass over memory boundaries (virtual to physical) which is not legal in embedded.
+
+Kernel/Service Mode vs User Mode:
+    In kernel mode we can directly access the memory addresses 
+    In User Mode we have OS as an abstraction layer and we the virtual and physical memory
+
+SPI on Xavier:
+0. Configure SPI pins on Xavier hardware:
+    a. sudo /opt/nvidia/jetson-io/config-by-function.py -l enabled // to check if SPI is enabled already or not
+    b. sudo /opt/nvidia/jetson-io/config-by-function.py -l all // to check if SPI is even available or not
+    c. sudo /opt/nvidia/jetson-io/config-by-function.py -o dtb spi1 // this command updates the Data Tree Blob on Xavier and updates it with the spi pins
+    d. Reboot Xavier
+    e. sudo modprobe spidev // adding the module spidev from kernel
+1. ls /dev/ | grep spi // this is to find if Xavier has the spi driver or not
+if driver exists:
+    2. /dev/[spi_driver] to see the implementation of the driver if it exists 
+    3. Review the driver code in step 2 if that is even possible
+else:
+    4. Get the kernel headers:
+        a. Jetpack 5.1.4 SDK, Jetson Linux 35.6.0, with Linux kernel 5.10.
+        b. Relevant L4T (Linux for Tegra version)
+        c. Look for ./source_sync.sh on Xavier otherwise the host booting PC.
+        d. Resource for Orin: https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-3275/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/kernel_custom.html#wwpID0E0OE0HA
+        e. ./source_sync.sh -k tegra-l4t-r32.5 // if the base command for source sync does not work
+    4. Program own driver for SPI
+
+// For monitoring GPU and CPU usage etc
+Installing Jetson stats: sudo pip3 install -U jetson-stats
+Repo: https://github.com/rbonghi/jetson_stats
+
+Resources:
+    SPI on Jetson: https://forums.developer.nvidia.com/t/jetson-nano-trouble-using-spi/195510
+    Acessing SPI using LKM: https://www.youtube.com/watch?v=RZuL-j5qXg0 (in description also has driver programming link)
+    Raspberry Pi Kernel Development: https://www.youtube.com/watch?v=lWzFFusYg6g&list=PLc7W4b0WHTAX4F1Byvs4Bp7c8yCDSiKa9
+    Linux Kernel API reference: https://www.kernel.org/doc/html/v5.2/driver-api/spi.html
