@@ -61,6 +61,10 @@ We want to further extend our thanks to [Muneeb Ahmad](https://github.com/muneeb
 ## Resources
 https://github.com/maudzung/Complex-YOLOv4-Pytorch
 
+https://github.com/ouster-lidar/ouster-ros
+
+https://github.com/ouster-lidar/ouster-sdk
+
 https://docs.ros.org/en/humble/index.html
 
 https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV
