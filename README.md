@@ -54,3 +54,4 @@ https://docs.ros.org/en/humble/index.html
 https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV
 
 ## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
