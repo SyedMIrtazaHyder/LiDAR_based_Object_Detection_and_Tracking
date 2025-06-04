@@ -1,5 +1,5 @@
 # LiDAR based Object Detection and Tracking for NUSTAG Electric Vehicle
-![FYP Poster](images/LBOD&T_Poster.png)
+![FYP Poster](images/Diagram.png)
 
 ## Summary
 ### Abstract
@@ -16,8 +16,10 @@ By converting the 3D point Cloud Data into [BEV image](https://arxiv.org/abs/180
 The model were then converted to TRT models (.engine) to run with lower latency on Jetson Xavier.
 
 ### Output
-![Output GIF](videos/outdoor_test.gif)
-<img src="images/simulation/Gazebo_Car_Pedestrian_Detect.png" alt="drawing" style="width:200px;"/>
+<img src="videos/outdoor_test.gif" alt="drawing" style="width:40%;"/>
+<img src="images/simulation/Gazebo_Car_Pedestrian_Detect.png" alt="drawing" style="width:40%;"/>
+
+![Prediction Image](images/bev/7.jpg)
 
 ## Background
 The NUST Automobile Group designs, develops and maintains student built cars which are taken to different competitions world wide. Details about the mechanical and electrical design can be found in the [Teknofest Report](Teknofest_2022-Robo_Taxi_NUSTAG.pdf).
