@@ -16,8 +16,7 @@ By converting the 3D point Cloud Data into [BEV image](https://arxiv.org/abs/180
 The model were then converted to TRT models (.engine) to run with lower latency on Jetson Xavier.
 
 ### Output
-<img src="videos/outdoor_test.gif" alt="drawing" style="width:40%;"/>
-<img src="images/simulation/Gazebo_Car_Pedestrian_Detect.png" alt="drawing" style="width:40%;"/>
+<img src="videos/outdoor_test.gif" alt="drawing" style="width:500px;"/> <img src="images/simulation/Gazebo_Car_Pedestrian_Detect.png" alt="drawing" style="width:40%;"/>
 
 ![Prediction Image](images/bev/7.jpg)
 
