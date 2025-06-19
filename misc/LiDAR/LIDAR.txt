@@ -1,0 +1,24 @@
+LIDAR Specifications
+What is a LiDAR: Light Detection and Ranging
+Pulse: Light emitted by LiDAR system
+Return: Reflected light energy recorded by sensor
+LiDAR Point Cloud: Component responsible for calculating time and distance.
+** LiDAR has in-built GPS and IMU units (maybe we can use those with meta data or smthn)
+
+Outser LiDAR:
+Using/Testing LiDAR: https://www.youtube.com/watch?v=m0ANVFunObU
+
+Relevant Papers
+Implementation of LiDAR with ROS2 Iron: https://aaltodoc.aalto.fi/server/api/core/bitstreams/8944ec54-47bd-4a45-8558-fd2c76ff1079/content
+
+Models: https://segments.ai/blog/7-state-of-the-art-3d-point-cloud-models-for-autonomous-driving/
+
+Difference between OS1 Gen1 and OS1 Rev07:
+1. Minimum Range ( 0.8 vs 0)
+2. Vertical Resolution (64 vs 128)
+3. FoV (16.6 vs 21.2 or 33.2 vs 42.4)
+4. Data Per Point: Same
+
+Ouster provides its own software for visualizing the Ouster LiDAR data but is not compatible with Ubuntu 2022 onwards. https://data.ouster.io/downloads/software-user-manual/Ouster-Studio-2.0.4.pdf
+
+YOLO with Ouster: https://ouster.com/insights/blog/object-detection-and-tracking-using-deep-learning-and-ouster-python-sdk 

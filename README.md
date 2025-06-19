@@ -62,15 +62,11 @@ Firstly we would like to thank our professors [Usman Akram](https://scholar.goog
 We want to further extend our thanks to [Muneeb Ahmad](https://github.com/muneebahmed26301) for developing the LiDAR mount and helping us to attach the LiDAR to the car.
 
 ## Resources
-https://github.com/maudzung/Complex-YOLOv4-Pytorch
-
-https://github.com/ouster-lidar/ouster-ros
-
-https://github.com/ouster-lidar/ouster-sdk
-
-https://docs.ros.org/en/humble/index.html
-
-https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV
+1. https://github.com/maudzung/Complex-YOLOv4-Pytorch
+2. https://github.com/ouster-lidar/ouster-ros
+3. https://github.com/ouster-lidar/ouster-sdk
+4. https://docs.ros.org/en/humble/index.html
+5. https://github.com/le9endary/Lane-Detection-and-YOLO-TRT-Implementation-NUSTAG-EV
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
