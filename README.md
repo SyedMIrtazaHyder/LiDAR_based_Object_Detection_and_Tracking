@@ -1,5 +1,5 @@
 # LiDAR based Object Detection and Tracking for NUSTAG Electric Vehicle
-![FYP Poster](images/Diagram.png)
+![FYP Poster](images/Diagram_DM.png)
 
 ## Summary
 ### Abstract
@@ -21,7 +21,7 @@ The model were then converted to TRT models (.engine) to run with lower latency 
 ![Prediction Image](images/bev/7.jpg)
 
 ## Background
-The NUST Automobile Group designs, develops and maintains student built cars which are taken to different competitions world wide. Details about the mechanical and electrical design can be found in the [Teknofest Report](Teknofest_2022-Robo_Taxi_NUSTAG.pdf).
+The NUST Automobile Group designs, develops and maintains student built cars which are taken to different competitions world wide. Details about the mechanical and electrical design can be found in the [Teknofest Report](misc/Car_Specifications/Teknofest_2022-Robo_Taxi%20NUSTAG.pdf).
 
 Our project was for the NUSTAG Autonomous Vehicle. The vehicle initially utilized mono and stereo cameras for its perception stack. Additionally it used CAN BUS communication (but that was not functional when we started the project).
 
@@ -40,6 +40,8 @@ The [models](models) folder contains the mentioned deep learning models trained.
 The [ROS2](ROS2) folder contains the Dockerfile, compose.yaml and .tmux file for setting up the Docker environment. It also contains the source folder that has all the relevant ROS2 packages to for visualization and simulation purposes.
 
 The [scripts](scripts) folder cotains the tracker algorithm as well as the real-time detection and video-based detection scripts. Note that the video-based detection script takes the BEV image as input. A PCAP -> BEV convertor script is also provided.
+
+The [misc](misc) folder contains LiDAR reference documents and the Autonomous Car Specifications (i.e. wheelbase, turning angle etc).
 
 ## Results
 | Model | TRT inference | mAP % at 50 IoU | mAP at 50-95 IoU |
@@ -60,6 +62,8 @@ RT-DETR | 50 | 65.4 | 58.9 |
 Firstly we would like to thank our professors [Usman Akram](https://scholar.google.com/citations?hl=en&user=2BntV9IAAAAJ) and [Fahad Mumtaz Malik](https://scholar.google.com/citations?hl=en&user=i9ycd5sAAAAJ) for their continous support and providing us the resources for making the project possible.
 
 We want to further extend our thanks to [Muneeb Ahmad](https://github.com/muneebahmed26301) for developing the LiDAR mount and helping us to attach the LiDAR to the car.
+
+Be sure to check out the [Reinforcement Learning](https://github.com/Sim43/Autonomous-Vehicle) module worked by our second team.
 
 ## Resources
 1. https://github.com/maudzung/Complex-YOLOv4-Pytorch
